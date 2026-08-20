@@ -38,7 +38,14 @@ if "nombre_audio" not in st.session_state:
 TAMAÑO_MODELO = "small"
 IDIOMA = "es"
 
-
+MIME_POR_EXTENSION = {
+    ".mp3": "audio/mp3",
+    ".wav": "audio/wav",
+    ".m4a": "audio/mp4",
+    ".ogg": "audio/ogg",
+    ".flac": "audio/flac",
+    ".aac": "audio/aac",
+}
 # --------------------------------------------------
 # Cargar modelo
 # --------------------------------------------------
@@ -104,7 +111,9 @@ with col1:
     )
 
     if audio is not None:
-        st.audio(audio, format=audio.type)
+        ext = os.path.splitext(audio.name)[1].lower()
+        mime = MIME_POR_EXTENSION.get(ext, "audio/wav")
+        st.audio(audio.getvalue(), format=mime)
 
         tamaño_mb = audio.size / (1024 * 1024)
         st.caption(f"📁 {audio.name} · {tamaño_mb:.1f} MB")
