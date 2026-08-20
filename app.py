@@ -13,7 +13,7 @@ from faster_whisper import WhisperModel
 # --------------------------------------------------
 
 st.set_page_config(
-    page_title="Audio → Texto - Michigeeks",
+    page_title="Audio → Texto - Michigeeks v1",
     page_icon="🎙️",
     layout="wide",
 )
