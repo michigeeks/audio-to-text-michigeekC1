@@ -35,7 +35,7 @@ if "nombre_audio" not in st.session_state:
 # Configuración hardcodeada
 # --------------------------------------------------
 
-TAMAÑO_MODELO = "small"
+TAMAÑO_MODELO = "medium"
 IDIOMA = "es"
 
 MIME_POR_EXTENSION = {
